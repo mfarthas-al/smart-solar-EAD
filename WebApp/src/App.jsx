@@ -1,12 +1,17 @@
-// Root component. Routing between pages (Login, Backoffice pages, Operator pages)
-// will be added here once individual pages exist under src/pages.
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/auth/Login";
+import Dashboard from "./pages/backoffice/Dashboard";
+
 function App() {
+  const token = localStorage.getItem("token");
+
   return (
-    <div className="container py-5">
-      <h1>Smart Solar Microgrid Trading System</h1>
-      <p className="text-muted">Web App scaffold — pages go in src/pages.</p>
-    </div>
-  )
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
+      <Route path="/" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
