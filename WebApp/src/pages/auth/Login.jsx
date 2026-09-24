@@ -22,7 +22,13 @@ function Login() {
       // and reads the saved token fresh
       window.location.href = "/dashboard";
     } catch (err) {
-      setError("Invalid email or password");
+      if (err.response) {
+        // server responded, but rejected the login (wrong email/password, inactive account, etc.)
+        setError(err.response.data.message || "Invalid email or password");
+      } else {
+        // request never reached the server
+        setError("Could not reach the server. Is the WebService running?");
+      }
     }
   };
 
