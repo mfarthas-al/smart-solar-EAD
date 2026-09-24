@@ -20,7 +20,11 @@ function Login() {
 
       // full page redirect (not client-side navigate) so the app reloads
       // and reads the saved token fresh
-      window.location.href = "/dashboard";
+      if (response.data.role === "GridOperator") {
+        window.location.href = "/operator/dashboard";
+      } else {
+        window.location.href = "/backoffice/dashboard";
+      }
     } catch (err) {
       if (err.response) {
         // server responded, but rejected the login (wrong email/password, inactive account, etc.)

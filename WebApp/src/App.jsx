@@ -1,15 +1,43 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/auth/Login";
-import Dashboard from "./pages/backoffice/Dashboard";
+import RequireAuth from "./components/RequireAuth";
+import BackofficeDashboard from "./pages/backoffice/Dashboard";
+import OperatorDashboard from "./pages/operator/Dashboard";
+
+// Where "/" sends a visitor once we know if they're logged in and what role they are.
+function HomeRedirect() {
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
+
+  if (!token) return <Navigate to="/login" />;
+  if (role === "GridOperator") return <Navigate to="/operator/dashboard" />;
+  return <Navigate to="/backoffice/dashboard" />;
+}
 
 function App() {
-  const token = localStorage.getItem("token");
-
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={token ? <Dashboard /> : <Navigate to="/login" />} />
-      <Route path="/" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
+
+      <Route
+        path="/backoffice/dashboard"
+        element={
+          <RequireAuth>
+            <BackofficeDashboard />
+          </RequireAuth>
+        }
+      />
+
+      <Route
+        path="/operator/dashboard"
+        element={
+          <RequireAuth>
+            <OperatorDashboard />
+          </RequireAuth>
+        }
+      />
+
+      <Route path="/" element={<HomeRedirect />} />
     </Routes>
   );
 }

@@ -5,8 +5,8 @@ function Dashboard() {
     <div>
       <Navbar />
       <div className="container mt-4">
-        <h3>Backoffice Dashboard</h3>
-        <p>User Management, Microgrid Node Management, and Prosumer Activation pages go here.</p>
+        <h3>Grid Operator Dashboard</h3>
+        <p>Battery slot availability and booking monitoring pages go here.</p>
       </div>
     </div>
   );
