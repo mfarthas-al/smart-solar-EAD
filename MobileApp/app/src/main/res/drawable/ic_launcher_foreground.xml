@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Placeholder sun/leaf glyph — swap for a real app icon before submission. -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,24 L61,44 L82,44 L65,56 L71,76 L54,64 L37,76 L43,56 L26,44 L47,44 Z" />
+</vector>

@@ -14,11 +14,10 @@ build/
 # Android Studio / Gradle (MobileApp)
 *.iml
 .gradle/
-/local.properties
-/.idea/
+local.properties
+.idea/
 .DS_Store
-/build/
-/captures/
+captures/
 .externalNativeBuild/
 .cxx/
 *.apk

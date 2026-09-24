@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Smart Solar Microgrid</string>
+
+    <!-- Replace with a real key from Google Cloud Console before using the Maps screens. -->
+    <string name="google_maps_api_key">YOUR_GOOGLE_MAPS_API_KEY_HERE</string>
+
+    <!-- Base URL of the Web Service. Use 10.0.2.2 to reach your PC's localhost from the emulator. -->
+    <string name="api_base_url">http://10.0.2.2:5000/</string>
+</resources>
