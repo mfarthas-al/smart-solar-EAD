@@ -28,6 +28,11 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".common.LoginActivity" android:exported="false" />
+        <activity android:name=".prosumer.RegisterActivity" android:exported="false" />
+        <activity android:name=".prosumer.ProsumerDashboardActivity" android:exported="false" />
+        <activity android:name=".operator.OperatorDashboardActivity" android:exported="false" />
+
     </application>
 
 </manifest>
